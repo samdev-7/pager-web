@@ -1,5 +1,9 @@
-// UN-AUTHENTICATED USERS ONLY
+// Landing page for the app
+// Access: unauthenticated users
+// Route: /
 
-export default function Landing() {
-  return <></>;
+import Landing from "@/components/landing/Landing";
+
+export default function Root() {
+  return <Landing />;
 }
