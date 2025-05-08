@@ -10,19 +10,20 @@ export default function Landing() {
       <LandingNav />
       <div className="min-h-screen w-full flex justify-center">
         <div className="grid lg:grid-cols-3 w-full max-w-6xl">
-          <div className="flex flex-col lg:col-span-2 items-left justify-center p-12 lg:p-6 space-y-4 sm:space-y-6 ">
+          <div className="flex flex-col lg:col-span-2 items-left justify-center p-6 sm:p-12 md:p-18 xl:p-6 space-y-4 sm:space-y-6 ">
             <div className="flex text-sm sm:text-base">
               <p>🚧 Pager is currently under construction.</p>
             </div>
             <div className="space-y-4">
-              <h2 className="font-semibold text-2xl sm:text-5xl leading-tight">
+              <h2 className="font-semibold text-3xl sm:text-5xl leading-tight">
                 Reach people quickly,
                 <br />
                 without fuss.
               </h2>
-              <p className="text-base sm:text-lg text-muted-foreground">
+              <p className="sm:text-lg text-muted-foreground">
                 Keep your team on the same page, update your event attendees.
-                <br />
+                <span className="sm:hidden"> </span>
+                <br className="hidden sm:block" />
                 Let us worry about delivering your message.
               </p>
             </div>
