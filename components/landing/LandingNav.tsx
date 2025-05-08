@@ -26,7 +26,7 @@ export default function LandingNav() {
     >
       <div className="max-w-7xl grow ">
         <div className="flex items-center w-full">
-          <h1 className="font-bold text-2xl grow">Pager</h1>
+          <h1 className="font-semibold text-2xl grow">Pager</h1>
           <div className="space-x-4">
             <Link href="/auth/signup">
               <Button variant="outline">Log in</Button>
