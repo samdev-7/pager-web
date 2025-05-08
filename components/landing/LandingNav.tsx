@@ -8,7 +8,7 @@ export default function LandingNav() {
         <div className="flex items-center w-full">
           <h1 className="font-semibold text-2xl grow">Pager</h1>
           <div className="space-x-4">
-            <Link href="/auth/signup">
+            <Link href="/auth/login">
               <Button variant="outline">Log in</Button>
             </Link>
             <Link href="/auth/signup">
