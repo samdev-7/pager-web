@@ -64,6 +64,7 @@ export default function Signup() {
       if (!response.ok) {
         const error = await response.json();
         setError(error.message);
+        setAuthInProgress(false);
         return;
       }
     } catch (error) {
