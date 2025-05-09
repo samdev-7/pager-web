@@ -1,5 +1,9 @@
+import LandingNav from "@/components/landing/LandingNav";
+
 export default function Login() {
-    return (
-        <></>
-    );
+  return (
+    <>
+      <LandingNav showLogin={false} />
+    </>
+  );
 }
