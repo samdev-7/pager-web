@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { authMiddleware, getTokens } from "next-firebase-auth-edge";
+import { authMiddleware } from "next-firebase-auth-edge";
 import { cookies } from "next/headers";
 import { getTokensFromCookies } from "./lib/auth.server";
 
