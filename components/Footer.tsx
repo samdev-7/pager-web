@@ -1,6 +1,7 @@
+"use client";
+
 export default function Footer() {
   const year = new Date().getFullYear();
-
   return (
     <footer className="w-full flex justify-center">
       <div className="max-w-7xl grow flex justify-center text-xs text-muted-foreground py-1">
