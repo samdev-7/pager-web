@@ -36,4 +36,4 @@ function translateFirebaseError(error: unknown) {
   return "An unknown error occurred.";
 }
 
-export { app, auth, translateFirebaseError };
+export { app, auth, translateFirebaseError, clientCredentials };

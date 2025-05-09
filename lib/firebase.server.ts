@@ -19,4 +19,9 @@ function getFirebaseAdmin() {
 const firebaseAdmin = getFirebaseAdmin();
 const authAdmin = firebaseAdmin.auth();
 
-export { firebaseAdmin, authAdmin, getFirebaseAdmin };
+export {
+  firebaseAdmin,
+  authAdmin,
+  getFirebaseAdmin,
+  serviceAccountCredentials,
+};

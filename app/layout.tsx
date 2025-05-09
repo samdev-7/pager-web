@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { cookies } from "next/headers";
+import { AuthProvider } from "@/components/AuthProvider";
+import { toUser } from "@/lib/auth.client";
+import { getTokensFromCookies } from "@/lib/auth.server";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,17 +21,21 @@ export const metadata: Metadata = {
   description: "A quick way to reach people, without fuss.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const tokens = await getTokensFromCookies(await cookies());
+
+  const user = tokens ? toUser(tokens) : null;
+  console.log("User:", user);
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans bg-background`}
       >
-        {children}
+        <AuthProvider user={user}>{children}</AuthProvider>
       </body>
     </html>
   );
