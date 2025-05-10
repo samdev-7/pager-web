@@ -19,7 +19,11 @@ export default function AccountSwitcher() {
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton size="lg">
               <div className="h-full flex space-x-2 items-center">
-                <StatusAvatar src={user?.photoURL} name={user?.displayName} />
+                <StatusAvatar
+                  src={user?.photoURL}
+                  name={user?.displayName}
+                  fallbackClassName="bg-sidebar-foreground"
+                />
                 <div>
                   <div className="text-sm font-medium text-sidebar-foreground">
                     {user?.displayName ?? "Unknown name"}
