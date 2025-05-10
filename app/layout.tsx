@@ -29,7 +29,6 @@ export default async function RootLayout({
   const tokens = await getTokensFromCookies(await cookies());
 
   const user = tokens ? toUser(tokens) : null;
-  console.log("User:", user);
   return (
     <html lang="en">
       <body

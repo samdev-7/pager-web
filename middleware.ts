@@ -15,6 +15,16 @@ export default async function middleware(request: NextRequest) {
   const isAuthRequiredPath = authRequiredPathPrefixes.some((prefix) =>
     path.startsWith(prefix)
   );
+  const isRootPath = path === "/";
+
+  if (isRootPath) {
+    const tokens = await getTokensFromCookies(await cookies());
+
+    if (!!tokens) {
+      const nextUrl = new URL("/~", request.url);
+      return NextResponse.redirect(nextUrl);
+    }
+  }
 
   if (isLoginPath || isLogoutPath) {
     const tokens = await getTokensFromCookies(await cookies());
