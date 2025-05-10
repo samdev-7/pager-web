@@ -1,4 +1,6 @@
-import { Avatar } from "./ui/avatar";
+"use client";
+
+import { useAuth } from "@/lib/context/AuthContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,8 +8,10 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
+import { StatusAvatar } from "./StatusAvatar";
 
 export default function AccountSwitcher() {
+  const { user } = useAuth();
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -15,15 +19,13 @@ export default function AccountSwitcher() {
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton size="lg">
               <div className="h-full flex space-x-2 items-center">
-                <Avatar className="bg-sidebar-foreground rounded-md text-sidebar flex items-center justify-center text-lg">
-                  U
-                </Avatar>
+                <StatusAvatar src={user?.photoURL} name={user?.displayName} />
                 <div>
                   <div className="text-sm font-medium text-sidebar-foreground">
-                    User Name
+                    {user?.displayName ?? "Unknown name"}
                   </div>
                   <div className="text-xs text-sidebar-foreground flex items-center">
-                    me@example.com
+                    {user?.email ?? "Unknown email"}
                   </div>
                 </div>
               </div>
