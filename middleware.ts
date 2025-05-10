@@ -4,14 +4,14 @@ import { cookies } from "next/headers";
 import { getTokensFromCookies } from "./lib/auth.server";
 
 const loginPath = "/auth/login";
-const logoutPath = "/auth/logout";
+const signupPath = "/auth/signup";
 
 const authRequiredPathPrefixes = ["/~"];
 
 export default async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const isLoginPath = path === loginPath;
-  const isLogoutPath = path === logoutPath;
+  const isSignupPath = path === signupPath;
   const isAuthRequiredPath = authRequiredPathPrefixes.some((prefix) =>
     path.startsWith(prefix)
   );
@@ -26,7 +26,7 @@ export default async function middleware(request: NextRequest) {
     }
   }
 
-  if (isLoginPath || isLogoutPath) {
+  if (isLoginPath || isSignupPath) {
     const tokens = await getTokensFromCookies(await cookies());
 
     if (!!tokens) {
