@@ -1,10 +1,13 @@
+"use client";
+
 import {
   Calendar,
-  ChevronsUpDown,
   Home,
   Inbox,
   Search,
   Settings,
+  SidebarClose,
+  SidebarOpen,
 } from "lucide-react";
 
 import {
@@ -18,15 +21,12 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarTrigger,
+  useSidebar,
 } from "@/components/ui/sidebar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
 import TeamSwitcher from "./TeamSwitcher";
+import AccountSwitcher from "./AccountSwitcher";
+import { Separator } from "./ui/separator";
+import { Button } from "./ui/button";
 
 // Menu items.
 const items = [
@@ -58,6 +58,8 @@ const items = [
 ];
 
 export function AppSidebar() {
+  const { toggleSidebar } = useSidebar();
+
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader>
@@ -83,24 +85,25 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuButton>
-                  <div></div>
-                  <ChevronsUpDown className="ml-auto" />
-                </SidebarMenuButton>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent side="right">
-                <DropdownMenuItem>
-                  <span>Test</span>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </SidebarMenuItem>
-          <SidebarTrigger className="ml-auto" />
-        </SidebarMenu>
+        <AccountSwitcher />
+        <Separator className="group-data-[collapsible=icon]:hidden" />
+        <div className="text-muted-foreground flex items-center">
+          <span className="text-xs pl-2 overflow-hidden whitespace-nowrap group-data-[collapsible=icon]:hidden">
+            Pager {process.env.NEXT_PUBLIC_PAGER_VERSION}
+          </span>
+          <Button
+            data-sidebar="trigger"
+            data-slot="sidebar-trigger"
+            variant="ghost"
+            size="icon"
+            className="size-7 ml-auto"
+            onClick={toggleSidebar}
+          >
+            <SidebarOpen className="hidden group-data-[collapsible=icon]:block" />
+            <SidebarClose className="group-data-[collapsible=icon]:hidden" />
+            <span className="sr-only">Toggle Sidebar</span>
+          </Button>
+        </div>
       </SidebarFooter>
     </Sidebar>
   );

@@ -7,7 +7,6 @@ import {
 } from "./ui/dropdown-menu";
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
 import { Avatar } from "./ui/avatar";
-import { AvatarFallback } from "@radix-ui/react-avatar";
 import { StatusIcon } from "./StatusIcon";
 
 export default function TeamSwitcher() {
@@ -19,7 +18,7 @@ export default function TeamSwitcher() {
             <SidebarMenuButton size="lg">
               <div className="h-full flex space-x-2 items-center">
                 <Avatar className="bg-sidebar-foreground rounded-md text-sidebar flex items-center justify-center text-lg">
-                  <AvatarFallback>T</AvatarFallback>
+                  T
                 </Avatar>
                 <div>
                   <div className="text-sm font-medium text-sidebar-foreground">
